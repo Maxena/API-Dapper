@@ -1,4 +1,6 @@
 using System.Data;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 using API.Data;
 using API.Entities;
 using API.Exceptions;
@@ -6,16 +8,19 @@ using API.Interfaces;
 using API.Req;
 using API.Res;
 using Dapper;
+using Microsoft.IdentityModel.Tokens;
 
 namespace API.Repo;
 
 public class Repository : IRepository
 {
     private readonly ApplicationDbContext _context;
+    private readonly IConfiguration _configuration;
 
-    public Repository(ApplicationDbContext context)
+    public Repository(ApplicationDbContext context, IConfiguration configuration)
     {
         _context = context;
+        _configuration = configuration;
     }
 
     public async Task<string> Register(UserRegister request)
@@ -58,12 +63,22 @@ public class Repository : IRepository
             throw new UserNotFoundException(request.UserName);
 
         //todo: Generate token
-        
+        var key = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(_configuration["JwtSetting:Key"]));
+
+        var credential = new SigningCredentials(
+            key, SecurityAlgorithms.HmacSha256);
+        var token = new JwtSecurityToken(
+            _configuration["JwtSetting:Issuer"],
+            _configuration["JwtSetting:Audience"],
+            expires: DateTime.Now.AddHours(1),
+            signingCredentials: credential);
+
         var res = new LoginResponse
         {
             UserId = user.Id,
             FullName = user.FirstName + " " + user.LastName,
-            Token = null
+            Token = new JwtSecurityTokenHandler().WriteToken(token)
         };
 
         return res;

@@ -1,6 +1,7 @@
 using API.Interfaces;
 using API.Req;
 using API.Res;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +22,7 @@ public class UserController : ControllerBase
     /// List of all users 
     /// </summary>
     /// <returns></returns>
-    [Authorize]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [HttpGet("")]
     public async Task<ActionResult<List<UserResponse>>> GetUsers()
     {
@@ -41,7 +42,7 @@ public class UserController : ControllerBase
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    [Authorize]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [HttpGet("{id:int}")]
     public async Task<ActionResult<UserResponse>> GetUserById(int id)
     {
@@ -61,7 +62,6 @@ public class UserController : ControllerBase
     /// </summary>
     /// <param name="request"></param>
     /// <returns></returns>
-    [Authorize]
     [HttpPost("Login")]
     public async Task<ActionResult<LoginResponse>> Login(UserLogin request)
     {
@@ -81,7 +81,6 @@ public class UserController : ControllerBase
     /// </summary>
     /// <param name="request"></param>
     /// <returns></returns>
-    [Authorize]
     [HttpPost("Register")]
     public async Task<ActionResult<string>> Register(UserRegister request)
     {
