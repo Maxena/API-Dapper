@@ -82,7 +82,7 @@ public class UserController : ControllerBase
     /// <param name="request"></param>
     /// <returns></returns>
     [HttpPost("Register")]
-    public async Task<ActionResult<string>> Register(UserRegister request)
+    public async Task<ActionResult<string>> Register([FromForm] UserRegister request)
     {
         try
         {

@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API</name>
+    </assembly>
+    <members>
+        <member name="M:API.Controllers.UserController.GetUsers">
+            <summary>
+            List of all users 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.UserController.GetUserById(System.Int32)">
+            <summary>
+            specific user
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.UserController.Login(API.Req.UserLogin)">
+            <summary>
+            user login
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.UserController.Register(API.Req.UserRegister)">
+            <summary>
+            Register a new user 
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="P:API.Req.UserLogin.UserName">
+            <summary>
+            UserName
+            </summary>
+        </member>
+        <member name="P:API.Req.UserLogin.Password">
+            <summary>
+            Password
+            </summary>
+        </member>
+        <member name="P:API.Req.UserRegister.FirstName">
+            <summary>
+            FirstName
+            </summary>
+        </member>
+        <member name="P:API.Req.UserRegister.LastName">
+            <summary>
+            LastName
+            </summary>
+        </member>
+        <member name="P:API.Req.UserRegister.UserName">
+            <summary>
+            UserName
+            </summary>
+        </member>
+        <member name="P:API.Req.UserRegister.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="P:API.Req.UserRegister.Phone">
+            <summary>
+            Phone
+            </summary>
+        </member>
+        <member name="P:API.Req.UserRegister.Password">
+             <summary>
+            Password
+             </summary>
+        </member>
+        <member name="P:API.Res.LoginResponse.UserId">
+            <summary>
+            UserId
+            </summary>
+        </member>
+        <member name="P:API.Res.LoginResponse.FullName">
+            <summary>
+            FullName
+            </summary>
+        </member>
+        <member name="P:API.Res.LoginResponse.Token">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="P:API.Res.UserResponse.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API.Res.UserResponse.FirstName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API.Res.UserResponse.LastName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API.Res.UserResponse.UserName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API.Res.UserResponse.Email">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API.Res.UserResponse.Phone">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API.Res.UserResponse.LastLogin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API.Res.UserResponse.CreationTime">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

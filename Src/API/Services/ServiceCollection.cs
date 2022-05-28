@@ -19,15 +19,13 @@ public static class ServiceCollection
     public static IServiceCollection AddInfraStructure(this IServiceCollection services, IConfiguration configuration)
     {
         const string anyOriginPolicy = "AnyOriginPolicy";
-        services.AddCors(options =>
-            options.AddPolicy(anyOriginPolicy, builder =>
-            {
-                builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials()
-                    .SetIsOriginAllowed(x => true);
-            }));
+
+        services.AddCors(c =>
+            c.AddPolicy(anyOriginPolicy, options => options
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(x => true)
+                .AllowCredentials()));
 
         services.AddResponseCaching();
 
@@ -180,7 +178,7 @@ public static class ServiceCollection
         });
 
         #endregion
-        
+
 
         return services;
     }

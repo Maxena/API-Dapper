@@ -6,8 +6,5 @@ CREATE TABLE [dbo].[User] (
     [Phone]              NCHAR (10)     NULL,
     [LastLogin]          DATETIME2 (7)  NULL,
     [CreationTime]       DATETIME2 (7)  NULL,
-    [ActivationCode]     INT            NULL,
-    [Login]              VARCHAR (50)   NOT NULL,
-    [Password]           VARCHAR (50)   NOT NULL,
     CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED ([Id] ASC)
     );

@@ -61,3 +61,5 @@ E:\Projects\API\Src\API\obj\Debug\net6.0\refint\API.dll
 E:\Projects\API\Src\API\obj\Debug\net6.0\API.pdb
 E:\Projects\API\Src\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 E:\Projects\API\Src\API\obj\Debug\net6.0\ref\API.dll
+E:\Projects\API\Src\API\bin\Debug\net6.0\API.xml
+E:\Projects\API\Src\API\obj\Debug\net6.0\API.xml
